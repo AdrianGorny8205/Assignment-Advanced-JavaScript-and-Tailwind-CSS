@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+  File: index.html
+  Authors: <Group member names>          Date: <YYYY-MM-DD>
+  Description: Responsive metric/imperial unit converter styled with the
+  Tailwind CSS Play CDN. The navbar holds three tabs (Weight, Distance,
+  Temperature); each tab shows a form that converts one value or a list.
+  Logic lives in converters.js; tab and form wiring lives in app.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800">
+  <!-- Navbar with tabs -->
+  <header class="bg-white shadow">
+    <div class="mx-auto flex max-w-3xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      <h1 class="text-xl font-bold text-teal-800">Unit Converter</h1>
+      <nav id="tab-nav" role="tablist" class="flex gap-2"></nav>
+    </div>
+  </header>
+
+  <!-- Tab panels are inserted here by app.js -->
+  <main id="panels" class="mx-auto max-w-3xl px-4 py-8"></main>
+
+  <script src="converters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
