@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+  File: index.html
+  Authors: <Group member names>          Date: <YYYY-MM-DD>
+  Description: Responsive metric/imperial unit converter styled with the
+  Tailwind CSS Play CDN. The navbar holds three tabs (Weight, Distance,
+  Temperature); each tab shows a form that converts one value or a list.
+  Logic lives in converters.js; tab and form wiring lives in app.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800">
+  <!-- Navbar with tabs -->
+  <header class="bg-white shadow">
+    <div class="mx-auto flex max-w-3xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      <h1 class="text-xl font-bold text-teal-800">Unit Converter</h1>
+      <nav id="tab-nav" role="tablist" class="flex gap-2"></nav>
+    </div>
+  </header>
+
+  <!-- Tab panels are inserted here by app.js -->
+  <main id="panels" class="mx-auto max-w-3xl px-4 py-8"></main>
+
+  
+  <!-- Navbar / Tabs -->
+    <nav class="bg-gray-800 text-white">
+        <div class="flex justify-center gap-2 p-4">
+            <button
+                onclick="switchTab('weight')"
+                id="weightTab"
+                class="tab-button px-6 py-3 rounded-lg bg-blue-600"
+            >
+                Weight
+            </button>
+
+            <button
+                onclick="switchTab('distance')"
+                id="distanceTab"
+                class="tab-button px-6 py-3 rounded-lg hover:bg-gray-700"
+            >
+                Distance
+            </button>
+
+            <button
+                onclick="switchTab('temperature')"
+                id="temperatureTab"
+                class="tab-button px-6 py-3 rounded-lg hover:bg-gray-700"
+            >
+                Temperature
+            </button>
+        </div>
+    </nav>
+
+    <!-- Weight -->
+    <section id="weight" class="tab-content p-6">
+        <h2 class="text-2xl font-bold mb-4">Weight Converter</h2>
+
+        <input
+            id="weightInput"
+            type="text"
+            placeholder="Enter value or comma-separated values"
+            class="border p-3 rounded w-full mb-4"
+        >
+
+        <select id="weightDirection" class="border p-3 rounded mb-4">
+            <option value="kg-lb">Kilograms → Pounds</option>
+            <option value="lb-kg">Pounds → Kilograms</option>
+        </select>
+
+        <button
+            onclick="convertWeight()"
+            class="bg-blue-600 text-white px-5 py-3 rounded"
+        >
+            Convert
+        </button>
+
+        <p id="weightResult" class="mt-4 font-semibold"></p>
+    </section>
+
+    <!-- Distance -->
+    <section id="distance" class="tab-content hidden p-6">
+        <h2 class="text-2xl font-bold mb-4">Distance Converter</h2>
+
+        <input
+            id="distanceInput"
+            type="text"
+            placeholder="Enter value or comma-separated values"
+            class="border p-3 rounded w-full mb-4"
+        >
+
+        <select id="distanceDirection" class="border p-3 rounded mb-4">
+            <option value="km-mi">Kilometres → Miles</option>
+            <option value="mi-km">Miles → Kilometres</option>
+        </select>
+
+        <button
+            onclick="convertDistance()"
+            class="bg-blue-600 text-white px-5 py-3 rounded"
+        >
+            Convert
+        </button>
+
+        <p id="distanceResult" class="mt-4 font-semibold"></p>
+    </section>
+
+    <!-- Temperature -->
+    <section id="temperature" class="tab-content hidden p-6">
+        <h2 class="text-2xl font-bold mb-4">Temperature Converter</h2>
+
+        <input
+            id="temperatureInput"
+            type="text"
+            placeholder="Enter value or comma-separated values"
+            class="border p-3 rounded w-full mb-4"
+        >
+
+        <select id="temperatureDirection" class="border p-3 rounded mb-4">
+            <option value="c-f">Celsius → Fahrenheit</option>
+            <option value="f-c">Fahrenheit → Celsius</option>
+        </select>
+
+        <button
+            onclick="convertTemperature()"
+            class="bg-blue-600 text-white px-5 py-3 rounded"
+        >
+            Convert
+        </button>
+
+        <p id="temperatureResult" class="mt-4 font-semibold"></p>
+    </section>
+  <script src="converters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

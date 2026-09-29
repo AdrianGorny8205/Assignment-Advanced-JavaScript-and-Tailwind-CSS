@@ -5,5 +5,4 @@ const tabs = {
   
   temperature: { label: "Temperature", metric: ["C", "Celsius"], imperial: ["F", "Fahrenheit"] },
 };
-
-
+ 

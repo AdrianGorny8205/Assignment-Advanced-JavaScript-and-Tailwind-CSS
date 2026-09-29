@@ -71,7 +71,7 @@ function convertWeight() {
 
         const [fromUnit, toUnit] = direction.split("-");
 
-        const converter = createConverter(fromUnit, toUnit);
+        const converter = makeConverter(fromUnit, toUnit);
 
         const result = converter(values);
 
@@ -94,7 +94,7 @@ function convertDistance() {
 
         const [fromUnit, toUnit] = direction.split("-");
 
-        const converter = createConverter(fromUnit, toUnit);
+        const converter = makeConverter(fromUnit, toUnit);
 
         const result = converter(values);
 
@@ -117,7 +117,7 @@ function convertTemperature() {
 
         const [fromUnit, toUnit] = direction.split("-");
 
-        const converter = createConverter(fromUnit, toUnit);
+        const converter = makeConverter(fromUnit, toUnit);
 
         const result = converter(values);
 
